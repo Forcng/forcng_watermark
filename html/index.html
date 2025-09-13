@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="overflow-hidden">
+
+    <img src="logo.png" alt="" draggable="false" id="watermark" class="fixed right-[2vw] top-[1vh] w-[7vw] animate-pulse"/>
+
+    <script>
+      window.addEventListener('message', (event) => {
+        const data = event.data;
+
+        if (data.action === "hideWatermark") {
+          document.getElementById("watermark").classList.add("hidden");
+        }
+
+        if (data.action === "showWatermark") {
+          document.getElementById("watermark").classList.remove("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
